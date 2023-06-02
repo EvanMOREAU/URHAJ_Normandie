@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page index{% endblock %}
+
+{% block body %}
+    <h1>Page index</h1>
+    <table>
+        <tbody>
+    			{% for paquetDe3Pages in pagePerThree %}
+				{%if paquetDe3Pages[1] is defined %}
+                <td>
+                <tr>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ paquetDe3Pages[1].title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">ID : {{ paquetDe3Pages[1].id }}</h6>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </tr>
+				{% endif %}
+				{%if paquetDe3Pages[2] is defined %}
+                    <tr>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ paquetDe3Pages[2].title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">ID : {{ paquetDe3Pages[2].id }}</h6>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                    </tr>
+				{% endif %}
+				{% if paquetDe3Pages[3] is defined %}
+                    <tr>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ paquetDe3Pages[3].title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary">ID : {{ paquetDe3Pages[3].id }}</h6>
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                    </tr>
+                </td>
+				{% endif %}
+			{% endfor %}
+        <tbody>
+    <table>
+    {# <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set count = 0 %}
+        {% for page in pages %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ page.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">ID : {{ page.id }}</h6>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+            {% set count = count + 1 %}
+            {# <tr>
+                <td>{{ page.id }}</td>
+                <td>{{ page.title }}</td>                
+                <td>
+                    <a  class="btn btn-primary" href="{{ path('app_page_show', {'id': page.id}) }}">show</a>
+                    <a  class="btn btn-success" href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
+                </td>
+            </tr> 
+            {% if count >= 3 %}
+                {% set count = 0 %}
+                <br>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> #}
+
+    <a  class="btn btn-warning" href="{{ path('app_page_new') }}">Create new</a>
+{% endblock %}
