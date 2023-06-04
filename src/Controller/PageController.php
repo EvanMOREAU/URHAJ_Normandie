@@ -18,24 +18,9 @@ class PageController extends AbstractController
     #[Route('/', name: 'app_page_index', methods: ['GET'])]
     public function index(PageRepository $pageRepository): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
-
-        $pagePerThree = array();
-
-        $pages = $pageRepository->findAll();
-
-        $i=1; $j=0;
-        foreach ($pages as $page) {
-            $i++;
-            if ($i>3) {
-                $j++; $i=1;
-            }
-            $pagePerThree[$j][$i] = $page;
-        }
-        
-        return $this->render('page/index.html.twig', ['pagePerThree' => $pagePerThree,]);
-   
-
+        return $this->render('page/index.html.twig', [
+            'pages' => $pageRepository->findAll(),
+        ]);
     }
 
     #[Route('/new', name: 'app_page_new', methods: ['GET', 'POST'])]

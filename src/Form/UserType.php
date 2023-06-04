@@ -2,28 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Page;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PageType extends AbstractType
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-            ->add('text', CKEditorType::class)
-            
-            // ->add('image')
+            ->add('email')
+            ->add('roles')
+            ->add('password')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Page::class,
+            'data_class' => User::class,
         ]);
     }
 }

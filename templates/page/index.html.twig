@@ -3,51 +3,198 @@
 {% block title %}Page index{% endblock %}
 
 {% block body %}
+    <style>
+    html {
+        height: auto;
+    }
+    body {
+        margin: 50px;
+        padding:0;
+        font-family: sans-serif;
+        background: linear-gradient(#30142b, #a12727);
+    }
+    .containerp, .cardp {
+    display: inline-block;
+    }
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 2 colonnes avec largeur égale */
+    grid-gap: 10px; /* Espacement entre les éléments */
+    }
+    .containerp {
+    position: relative;
+    width: 190px;
+    height: 254px;
+    }
+
+    .cardp {
+    position: relative;
+    width: 190px;
+    height: 254px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    color: #232323;
+    padding: 16px;
+    border: 1px solid #232323;
+    transition: all .5s ease-in-out;
+    overflow: hidden;
+    }
+
+    .cardp-hidden {
+    display: flex;
+    transform: translateY(200%);
+    flex-direction: column;
+    gap: .5rem;
+    transition: transform .5s ease-in, opacity .3s ease-in;
+    opacity: 0;
+    }
+    a {
+        text-decoration: none; /* Supprime le soulignement */
+        color: white; /* Couleur du texte en blanc */
+    }
+
+    .cardp-border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: 1px dashed #232323;
+    border-radius: 8px;
+    z-index: -1;
+    }
+
+    /*Hovers*/
+    .cardp:hover {
+    transform: translate(-15px, -15px);
+    border-color: #5bc0eb;
+    }
+
+    .cardp:hover .cardp-hidden {
+    transform: translateY(0);
+    opacity: 1;
+    }
+
+    .cardp:hover .titlep {
+    transform: translateY(200%);
+    }
+
+    /*Text*/
+    .titlep {
+    position: absolute;
+    bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: transform .25s ease-out;
+    }
+
+    .titlep-in {
+    font-weight: 700;
+    font-size: 1.25rem;
+    }
+
+    /*Button*/
+    .buttonp {
+        display: inline-flex;
+        justify-content: center;
+        padding: 8px;
+        border-radius: 24px;
+        font-weight: 600;
+        background: linear-gradient(#30142b, #a12727);
+        cursor: pointer;
+        transition: background-color .3s ease-in-out;
+    }
+
+    .buttonp:hover {
+        background-color: #53aed4;
+    }
+
+        /* inspired from this svgbackgrounds.com/ */
+    .buttonaction {
+    width: fit-content;
+    display: flex;
+    padding: 0.6em 1.1em;
+    gap: 0.4rem;
+    font-weight: bold;
+    border-radius: 30px;
+    text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+    background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
+    background-size: 300%;
+    background-position: left center;
+    transition: background .3s ease;
+    color: #fff;
+    }
+
+    .buttonaction:hover {
+    background-size: 320%;
+    background-position: right center;
+    }
+
+    .buttonaction:hover svg {
+    fill: #fff;
+    }
+
+    .buttonaction svg {
+    width: 23px;
+    fill: #f09f33;
+    transition: .3s ease;
+    }
+    </style>
     <h1>Page index</h1>
-    <table>
-        <tbody>
-    			{% for paquetDe3Pages in pagePerThree %}
-				{%if paquetDe3Pages[1] is defined %}
-                <td>
-                <tr>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ paquetDe3Pages[1].title }}</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">ID : {{ paquetDe3Pages[1].id }}</h6>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
+    <div class="grid-container">
+        {% for page in pages %}
+            <div class="containerp">
+                <div class="cardp">
+                    <p class="titlep">{{ page.title }}</p>
+                    <div class="cardp-hidden">
+                        <p class="titlep-in">{{ page.title }}</p>
+                        <p>ID de la page : {{ page.id }}</p>
+                        {# <a class="buttonp" data-bs-toggle="offcanvas" href="#offcanvas{{ page.title }}" role="button" aria-controls="offcanvas{{ page.title }}">Gestion</a> #}
+                        <a class="buttonp" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{ page.title }}Modal">Gestion</a>
                     </div>
-                </tr>
-				{% endif %}
-				{%if paquetDe3Pages[2] is defined %}
-                    <tr>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ paquetDe3Pages[2].title }}</h5>
-                                <h6 class="card-subtitle mb-2 text-body-secondary">ID : {{ paquetDe3Pages[2].id }}</h6>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
-                        </div>
-                    </tr>
-				{% endif %}
-				{% if paquetDe3Pages[3] is defined %}
-                    <tr>
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ paquetDe3Pages[3].title }}</h5>
-                                <h6 class="card-subtitle mb-2 text-body-secondary">ID : {{ paquetDe3Pages[3].id }}</h6>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
-                            </div>
-                        </div>
-                    </tr>
-                </td>
-				{% endif %}
-			{% endfor %}
-        <tbody>
-    <table>
+                </div> 
+                <div class="cardp-border"></div>
+            </div>
+
+            <!-- OffCanvas -->
+
+            {# <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas{{ page.title }}" aria-labelledby="offcanvas{{ page.title }}">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvas{{ page.title }}">{{ page.title }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div>
+                    Ici vous pouvez gérer les différentes actions liées à la page que vous venez de sélectionner. Garde à vous, tout changement est irréversible.
+                    </div>
+                    <br>
+                    <a  class="btn btn-primary" href="{{ path('app_page_show', {'id': page.id}) }}">show</a>
+                    <a  class="btn btn-success" href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
+                </div>
+            </div> #}
+
+            <div class="modal fade" id="{{ page.title }}Modal" tabindex="-1" aria-labelledby="{{ page.title }}ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-dark text-white">
+                    <div class="modal-header bg-dark text-white">
+                        <h1 class="modal-title fs-5" id="{{ page.title }}ModalLabel">{{ page.title }}</h1>
+                        <button type="button" class="btn-close bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" align='center'>
+                        Ici vous pouvez gérer les différentes actions liées à la page que vous venez de sélectionner. Attention, tout changement est irréversible.
+
+                    </div>
+                    <div class="modal-footer" align="center">
+                        <a  class="buttonaction" href="{{ path('app_page_show', {'id': page.id}) }}">Afficher</a>
+                        <a  class="buttonaction" href="{{ path('app_page_edit', {'id': page.id}) }}">Modifier</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
     {# <table class="table">
         <thead>
             <tr>
