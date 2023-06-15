@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Page index{% endblock %}
-
 {% block body %}
     <style>
     html {
@@ -48,6 +46,7 @@
     transition: transform .5s ease-in, opacity .3s ease-in;
     opacity: 0;
     }
+
     a {
         text-decoration: none; /* Supprime le soulignement */
         color: white; /* Couleur du texte en blanc */
@@ -155,24 +154,6 @@
                 </div> 
                 <div class="cardp-border"></div>
             </div>
-
-            <!-- OffCanvas -->
-
-            {# <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas{{ page.title }}" aria-labelledby="offcanvas{{ page.title }}">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvas{{ page.title }}">{{ page.title }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div>
-                    Ici vous pouvez gérer les différentes actions liées à la page que vous venez de sélectionner. Garde à vous, tout changement est irréversible.
-                    </div>
-                    <br>
-                    <a  class="btn btn-primary" href="{{ path('app_page_show', {'id': page.id}) }}">show</a>
-                    <a  class="btn btn-success" href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
-                </div>
-            </div> #}
-
             <div class="modal fade" id="{{ page.title }}Modal" tabindex="-1" aria-labelledby="{{ page.title }}ModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content bg-dark text-white">
@@ -193,47 +174,6 @@
             </div>
         {% endfor %}
     </div>
-
-
-    {# <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% set count = 0 %}
-        {% for page in pages %}
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ page.title }}</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">ID : {{ page.id }}</h6>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-            {% set count = count + 1 %}
-            {# <tr>
-                <td>{{ page.id }}</td>
-                <td>{{ page.title }}</td>                
-                <td>
-                    <a  class="btn btn-primary" href="{{ path('app_page_show', {'id': page.id}) }}">show</a>
-                    <a  class="btn btn-success" href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
-                </td>
-            </tr> 
-            {% if count >= 3 %}
-                {% set count = 0 %}
-                <br>
-            {% endif %}
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table> #}
 
     <a  class="btn btn-warning" href="{{ path('app_page_new') }}">Create new</a>
 {% endblock %}

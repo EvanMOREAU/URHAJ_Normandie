@@ -19,7 +19,7 @@ class AppFixtures extends Fixture
     {
         $superAdmin = new User();
         $superAdmin->setEmail('minisushi@domaine.tld');
-
+        $superAdmin->setName('Evan MOREAU');
         $plaintextPassword = "ptitlou";
         $hashedPassword = $this->passwordHasher->hashPassword(
             $superAdmin,

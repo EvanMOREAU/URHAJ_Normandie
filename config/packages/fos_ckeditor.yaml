@@ -3,3 +3,11 @@
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+fos_ck_editor:
+    default_config: default
+    configs:
+        default:
+            extra_plugins: "mediaembed"
+            toolbar:
+                "full"
+                - { name: 'insert', items: ['Image', 'Flash', 'MediaEmbed'] }

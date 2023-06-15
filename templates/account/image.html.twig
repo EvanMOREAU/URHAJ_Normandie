@@ -1,0 +1,285 @@
+{% extends 'account/accountnav.html.twig' %}
+
+{% block body %}
+    {# {{ form_widget(form.imageFileName) }} #}
+    <style>
+        body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .button {
+        position: relative;
+        width: 300px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        border: 1px solid #17795E;
+        background-color: #209978;
+        overflow: hidden;
+        }
+
+        .button, .button__icon, .button__text {
+        transition: all 0.3s;
+        }
+
+        .button .button__text {
+        transform: translateX(22px);
+        color: #fff;
+        font-weight: 600;
+        }
+
+        .button .button__icon {
+        position: absolute;
+        transform: translateX(109px);
+        height: 100%;
+        width: 39px;
+        background-color: #17795E;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .button .svg {
+        width: 20px;
+        fill: #fff;
+        }
+
+        .button:hover {
+        background: #17795E;
+        }
+
+        .button:hover .button__text {
+        color: transparent;
+        }
+
+        .button:hover .button__icon {
+        width: 148px;
+        transform: translateX(0);
+        }
+
+        .button:active .button__icon {
+        background-color: #146c54;
+        }
+
+        .button:active {
+        border: 1px solid #146c54;
+        }
+
+        /* Envoi */
+        .buttonsend {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: inherit;
+        font-size: 20px;
+        background: royalblue;
+        color: white;
+        padding: 0.7em 1em;
+        padding-left: 0.9em;
+        display: flex;
+        align-items: center;
+        border: none;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.2s;
+        }
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .buttonsend span {
+        display: block;
+        margin-left: 0.3em;
+        transition: all 0.3s ease-in-out;
+        }
+
+        .buttonsend svg {
+        vertical-align: middle;
+        display: block;
+        transform-origin: center center;
+        transition: transform 0.3s ease-in-out;
+        }
+
+        .buttonsend:hover .svg-wrapper {
+        animation: fly-1 0.6s ease-in-out infinite alternate;
+        }
+
+        .buttonsend:hover svg {
+        transform: translateX(1.2em) rotate(45deg) scale(1.1);
+        }
+
+        .buttonsend:hover span {
+        transform: translateX(40em);
+        }
+
+        .buttonsend:active {
+        transform: scale(0.3);
+        }
+
+        @keyframes fly-1 {
+        from {
+            transform: translateY(0.1em);
+        }
+
+        to {
+            transform: translateY(-0.3em);
+        }
+        }
+
+        /* Dépot */
+
+        .form {
+        background-color: #fff;
+        box-shadow: 0 10px 60px rgb(218, 229, 255);
+        border: 1px solid rgb(159, 159, 160);
+        border-radius: 20px;
+        padding: 2rem .7rem .7rem .7rem;
+        text-align: center;
+        font-size: 1.125rem;
+        max-width: 320px;
+        }
+
+        .form-title {
+        color: #000000;
+        font-size: 1.8rem;
+        font-weight: 500;
+        }
+
+        .form-paragraph {
+        margin-top: 10px;
+        font-size: 0.9375rem;
+        color: rgb(105, 105, 105);
+        }
+
+        .drop-container {
+        background-color: #fff;
+        position: relative;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-top: 2.1875rem;
+        border-radius: 10px;
+        border: 2px dashed rgb(171, 202, 255);
+        color: #444;
+        cursor: pointer;
+        transition: background .2s ease-in-out, border .2s ease-in-out;
+        }
+
+        .drop-container:hover {
+        background: rgba(0, 140, 255, 0.164);
+        border-color: rgba(17, 17, 17, 0.616);
+        }
+
+        .drop-container:hover .drop-title {
+        color: #222;
+        }
+
+        .drop-title {
+        color: #444;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        transition: color .2s ease-in-out;
+        }
+
+        #file-input {
+        width: 350px;
+        max-width: 100%;
+        color: #444;
+        padding: 2px;
+        background: #fff;
+        border-radius: 10px;
+        border: 1px solid rgba(8, 8, 8, 0.288);
+        }
+
+        #file-input::file-selector-button {
+        margin-right: 20px;
+        border: none;
+        background: #084cdf;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+        }
+
+        #file-input::file-selector-button:hover {
+        background: #0d45a5;
+        }
+    </style>
+
+
+{{ form_start(form) }}
+
+<div class="form-group">
+  <label for="{{ form.image.vars.id }}">Déposez le fichier ici</label>
+  <p class="form-paragraph">
+    Le fichier doit être une image
+  </p>
+  <div class="drop-container" id="dropContainer">
+    <span class="drop-title">Déposez le fichier ici</span>
+    ou
+    {{ form_widget(form.image, { 'id': form.image.vars.id, 'attr': {'class': 'form-control', 'onchange': 'handleFileSelect(event)'} }) }}
+  </div>
+  <p id="file-name" class="file-name">
+    {% if form.image.vars.value is not empty %}
+      {{ form.image.vars.value.name }}
+    {% endif %}
+  </p>
+    <button class="buttonsend">
+        <div class="svg-wrapper-1">
+            <div class="svg-wrapper">
+            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
+            </svg>
+            </div>
+        </div>
+        <span>Enregistrer</span>
+    </button>
+</div>
+
+
+{{ form_end(form) }}
+
+<script>
+  const dropContainer = document.getElementById('dropContainer');
+  const fileInput = document.getElementById('{{ form.image.vars.id }}');
+
+  dropContainer.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropContainer.classList.add('drag-over');
+  });
+
+  dropContainer.addEventListener('dragleave', () => {
+    dropContainer.classList.remove('drag-over');
+  });
+
+  dropContainer.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropContainer.classList.remove('drag-over');
+    const files = e.dataTransfer.files;
+    fileInput.files = files;
+    handleFileSelect(e);
+  });
+
+  function handleFileSelect(event) {
+    const file = event.target.files[0];
+    const fileNameElement = document.getElementById('file-name');
+    if (file) {
+      fileNameElement.textContent = file.name;
+    } else {
+      fileNameElement.textContent = '';
+    }
+  }
+</script>
+
+{% endblock %}
