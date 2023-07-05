@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau département{% endblock %}
+
+{% block body %}
+<style>
+
+    
+    body{
+        background-color: #15172b;
+        height: auto;
+    }
+</style>
+
+    <div class="form2">
+        <br><br><br><br><br>
+        {{ include('departement/_form.html.twig') }}
+        <br><br><br><br>
+    </div> 
+     
+{% endblock %}

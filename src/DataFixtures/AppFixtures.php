@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Structure;
 use App\Entity\User;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -17,20 +18,8 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $superAdmin = new User();
-        $superAdmin->setEmail('minisushi@domaine.tld');
-        $superAdmin->setName('Evan MOREAU');
-        $plaintextPassword = "ptitlou";
-        $hashedPassword = $this->passwordHasher->hashPassword(
-            $superAdmin,
-            $plaintextPassword
-        );
-        $superAdmin->setPassword($hashedPassword);
-        $superAdmin->setRoles([
-            "ROLE_SUPER_ADMIN",
-        ]);
-
-        $manager->persist($superAdmin);
+        // $product = new Product();
+        // $manager->persist($product);
 
         $manager->flush();
     }

@@ -1,4 +1,155 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+
+<style>
+    .checkbox-wrapper-31:hover .check {
+        stroke-dashoffset: 0;
+      }
+      
+      .checkbox-wrapper-31 {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+      }
+      
+      .checkbox-wrapper-31 .background {
+        fill: #ccc;
+        transition: ease all 0.6s;
+        -webkit-transition: ease all 0.6s;
+      }
+      
+      .checkbox-wrapper-31 .stroke {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+        stroke-dashoffset: 100;
+        stroke-dasharray: 100;
+        transition: ease all 0.6s;
+        -webkit-transition: ease all 0.6s;
+      }
+      
+      .checkbox-wrapper-31 .check {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+        stroke-dashoffset: 22;
+        stroke-dasharray: 22;
+        transition: ease all 0.6s;
+        -webkit-transition: ease all 0.6s;
+      }
+      
+      .checkbox-wrapper-31 input[type=checkbox] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        margin: 0;
+        opacity: 0;
+        -appearance: none;
+        -webkit-appearance: none;
+      }
+      
+      .checkbox-wrapper-31 input[type=checkbox]:hover {
+        cursor: pointer;
+      }
+      
+      .checkbox-wrapper-31 input[type=checkbox]:checked + svg .background {
+        fill: #6cbe45;
+      }
+      
+      .checkbox-wrapper-31 input[type=checkbox]:checked + svg .stroke {
+        stroke-dashoffset: 0;
+      }
+      
+      .checkbox-wrapper-31 input[type=checkbox]:checked + svg .check {
+        stroke-dashoffset: 0;
+      }
+</style>
+<br><br>
+<div class="form">
+    <div align='center'>
+        <div class="title">Création un nouvel utilisateur</div>
+        <div class="subtitle">Remplissez les informations nécéssaires</div>
+    </div>
+
+    {{ form_start(form) }}
+    <div class="input-container ic1">
+        {{ form_widget(form.email, { 'attr': {'placeholder': '', 'class': 'input', 'data-placeholder': 'E-Mail', 'onfocus': "if(this.value=='') { this.classList.add('has-value'); this.parentElement.classList.add('has-value'); }", 'onblur': "if(this.value=='') { this.classList.remove('has-value'); this.parentElement.classList.remove('has-value'); }"} }) }}
+        <div class="cut"></div>
+        <label class="iLabel" for="{{ form.email.vars.id }}">E-Mail</label>
+    </div>
+    <div class="input-container ic1">
+        {{ form_widget(form.password, { 'attr': {'placeholder': '', 'class': 'input', 'data-placeholder': 'Mot de passe', 'onfocus': "if(this.value=='') { this.classList.add('has-value'); this.parentElement.classList.add('has-value'); }", 'onblur': "if(this.value=='') { this.classList.remove('has-value'); this.parentElement.classList.remove('has-value'); }"} }) }}
+        <div class="cut"></div>
+        <label class="iLabel" for="{{ form.password.vars.id }}">Mot de passe</label>
+    </div>
+    {#<div class="input-container ic1">
+        {{ form_widget(form.title, { 'attr': {'placeholder': '', 'class': 'input', 'data-placeholder': 'Title', 'onfocus': "if(this.value=='') { this.classList.add('has-value'); this.parentElement.classList.add('has-value'); }", 'onblur': "if(this.value=='') { this.classList.remove('has-value'); this.parentElement.classList.remove('has-value'); }"} }) }}
+        <div class="cut"></div>
+        <label class="iLabel" for="{{ form.title.vars.id }}">Title</label>
+    </div>#}
+    <div class="input-container">
+        {# <label for="structure" class="iLabel">Structure</label> #}
+        {{ form_widget(form.structure, { 'id': 'structure', 'attr': {'class': 'input'} }) }}
+        <div class="cut"></div>
+        <label class="iLabel" for="{{ form.structure.vars.id }}">Structure</label>
+    </div>
+    {% for role in form.roles %}
+        <div class="checkbox-wrapper-31">
+            {{ form_widget(role) }}
+            <svg viewBox="0 0 35.6 35.6">
+                <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+            </svg>
+            <div class="subtitle">{{ role.vars.label }}</div>
+        </div>
+    {% endfor %}
+
+
+        <br><br>
+        <button type="submit" class="buttonsend">
+            <div class="svg-wrapper-1">
+                <div class="svg-wrapper">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <!-- SVG path code -->
+                    </svg>
+                </div>
+            </div>
+            <span>Enregistrer</span>
+        </button>
+    {{ form_end(form) }}
+
+</div>
+
+<br>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Écoutez l'événement "input" sur chaque champ de texte
+    $('.input').on('input', function() {
+        var inputValue = $(this).val(); // Récupérez la valeur du champ de texte
+        var placeholder = $(this).data('placeholder'); // Récupérez le placeholder d'origine depuis l'attribut "data-placeholder"
+
+        // Ajoutez ou supprimez la classe "has-value" selon que le champ contient du texte ou est vide
+        if (inputValue !== '') {
+            $(this).addClass('has-value');
+        } else {
+            $(this).removeClass('has-value');
+        }
+    });
+});
+    function toggleLabelVisibility(selectElement) {
+        var label = document.getElementById('structureLabel');
+        if (selectElement.value !== '') {
+            label.style.display = 'none';
+        } else {
+            label.style.display = 'block';
+        }
+    }
+</script>

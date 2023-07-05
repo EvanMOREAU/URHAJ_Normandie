@@ -1,0 +1,201 @@
+        
+    body{
+        background: linear-gradient(#30142b, #a12727);
+    }
+    /* test 2 */
+    .input {
+        display: fixed;
+        flex-direction: column;
+        width: 200px;
+        height: 100%;
+        background-color: #212529;
+        justify-content: center;
+        border-radius: 5px;
+        position: absolute; /* Ajout de cette ligne */
+        z-index: 9999; /* Ajout de cette ligne */
+    }
+
+    .value {
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+        color: white;
+        display: flex;
+        position: relative;
+        gap: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .value:not(:active):hover,
+    .value:focus {
+        background-color: #21262C;
+    }
+
+    .value:focus,
+    .value:active {
+        background-color: #1A1F24;
+        outline: none;
+    }
+
+    .value::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -10px;
+        width: 5px;
+        height: 80%;
+        background-color: #2F81F7;
+        border-radius: 5px;
+        opacity: 0;
+    }
+
+    .value:focus::before,
+    .value:active::before {
+        opacity: 1;
+    }
+
+    .value svg {
+        width: 15px;
+    }
+
+    .userimg {
+        width: 100px;
+        height: 100px;
+        background: #212529;
+        border-radius: 100%;
+        margin: auto;
+        margin-top: 20px;
+    }
+    /* Nav Utilisateur */
+    .main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    }
+
+    .up {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    }
+
+    .down {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    }
+
+    .card1 {
+    width: 180px;
+    height: 180px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 180px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+    }
+
+    .desc {
+    margin-top: 1.5em;
+    margin-left: 1.2em;
+    fill: #cc39a4;
+    }
+
+    .card2 {
+    width: 180px;
+    height: 180px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 180px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+    }
+
+    .passw {
+    margin-top: 1.5em;
+    margin-left: -.9em;
+    fill: #03A9F4;
+    }
+
+    .card3 {
+    width: 180px;
+    height: 180px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 180px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+    }
+
+    .profilepicture {
+    margin-top: -.6em;
+    margin-left: 1.2em;
+    }
+
+    .card4 {
+    width: 180px;
+    height: 180px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 180px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+    }
+
+    .profilenetwork {
+    margin-top: -.9em;
+    margin-left: -1.2em;
+    fill: #8c9eff;
+    }
+
+    .card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #cc39a4;
+    }
+
+    .card1:hover .desc {
+    fill: white;
+    }
+
+    .card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #03A9F4;
+    }
+
+    .card2:hover .passw {
+    fill: white;
+    }
+
+    .card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: black;
+    color:white;
+    }
+
+    .card3:hover .profilepicture {
+    fill: white;
+    }
+
+    .card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
+    }
+
+    .card4:hover .profilenetwork {
+    fill: white;
+    }
+    .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

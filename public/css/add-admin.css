@@ -1,0 +1,57 @@
+.buttonadd {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #a12727;
+    background-color: #a12727;
+  }
+  
+  .buttonadd, .buttonadd__icon, .buttonadd__text {
+    transition: all 0.3s;
+  }
+  
+  .buttonadd .buttonadd__text {
+    transform: translateX(2px);
+    color: #fff;
+    font-weight: 580;
+  }
+  
+  .buttonadd .buttonadd__icon {
+    position: absolute;
+    transform: translateX(120px);
+    height: 100%;
+    width: 63px;
+    background-color: #a12727;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .buttonadd .svg {
+    width: 40px;
+    stroke: #fff;
+  }
+  
+  .buttonadd:hover {
+    background: #a12727;
+  }
+  
+  .buttonadd:hover .buttonadd__text {
+    color: transparent;
+  }
+  
+  .buttonadd:hover .buttonadd__icon {
+    width: 180px;
+    transform: translateX(0);
+  }
+  
+  .buttonadd:active .buttonadd__icon {
+    background-color: #d63131;
+  }
+  
+  .buttonadd:active {
+    border: 1px solid #d63131;
+  }

@@ -1,10 +1,13 @@
-{% block title %}New Page{% endblock %}
-
 {% block body %}
-<br><br>
-    <h1>Create new Page</h1>
+    <style>
+        html{
+            background: #15172b;
+            height: auto;
+        }
+    </style>
 
+
+    <br><br><br><br><br>
     {{ include('page/_form.html.twig') }}
 
-    <a class="btn btn-primary" href="{{ path('app_page_index') }}">back to list</a>
 {% endblock %}

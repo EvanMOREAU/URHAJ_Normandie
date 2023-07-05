@@ -38,9 +38,13 @@ security:
                 # ...
                 enable_csrf: true
 
-    role_hierarchy:
+    role_hierarchy:     
         ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_CLLAJ:       ROLE_USER
+        ROLE_FJT:         ROLE_USER
+        ROLE_URHAJ:       [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_SUPER_ADMIN: [ROLE_URHAJ]
+        ROLE_DEVELOPPEUR: [ROLE_USER, ROLE_ALLOWED_TO_SWITCH]
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used

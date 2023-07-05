@@ -4,17 +4,21 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType as SymfonyPasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 
 class PasswordType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('password')
-        ;
+            ->add('password', SymfonyPasswordType::class, [
+                'label' => 'Nouveau mot de passe',
+            ])
+            ->add('confirmPassword', SymfonyPasswordType::class, [
+                'label' => 'Confirmer le mot de passe',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -41,16 +41,18 @@ class PageController extends AbstractController
         return $this->renderForm('page/new.html.twig', [
             'page' => $page,
             'form' => $form,
+            'pages' => $pageRepository->findAll(),
         ]);
     }
 
     #[Route('/{id}', name: 'app_page_show', methods: ['GET'])]
-    public function show(Page $page): Response
+    public function show(Page $page, PageRepository $pageRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_SUPER_ADMIN');
 
         return $this->render('page/show.html.twig', [
             'page' => $page,
+            'pages' => $pageRepository->findAll(),
         ]);
     }
 
@@ -71,6 +73,7 @@ class PageController extends AbstractController
         return $this->renderForm('page/edit.html.twig', [
             'page' => $page,
             'form' => $form,
+            'pages' => $pageRepository->findAll(),
         ]);
     }
 

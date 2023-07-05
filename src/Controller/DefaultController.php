@@ -16,4 +16,20 @@ class DefaultController extends AbstractController
             'pages' => $pageRepository->findAll(),
         ]);
     }
+
+    #[Route('/urhaj', name: 'app_urhaj')]
+    public function urhaj(PageRepository $pageRepository): Response
+    {
+        return $this->render('urhaj.html.twig',[
+            'pages' => $pageRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/methodologie', name: 'app_methodo')]
+    public function metho(PageRepository $pageRepository): Response
+    {
+        return $this->render('methodo.html.twig',[
+            'pages' => $pageRepository->findAll(),
+        ]);
+    }
 }

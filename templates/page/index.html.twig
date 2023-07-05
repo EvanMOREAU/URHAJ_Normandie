@@ -1,145 +1,16 @@
 {% extends 'base.html.twig' %}
 {% block title %}Page index{% endblock %}
 {% block body %}
-    <style>
-    html {
-        height: auto;
-    }
-    body {
-        margin: 50px;
-        padding:0;
-        font-family: sans-serif;
-        background: linear-gradient(#30142b, #a12727);
-    }
-    .containerp, .cardp {
-    display: inline-block;
-    }
-    .grid-container {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 2 colonnes avec largeur égale */
-    grid-gap: 10px; /* Espacement entre les éléments */
-    }
-    .containerp {
-    position: relative;
-    width: 190px;
-    height: 254px;
-    }
 
-    .cardp {
-    position: relative;
-    width: 190px;
-    height: 254px;
-    background: #f5f5f5;
-    border-radius: 8px;
-    color: #232323;
-    padding: 16px;
-    border: 1px solid #232323;
-    transition: all .5s ease-in-out;
-    overflow: hidden;
-    }
-
-    .cardp-hidden {
-    display: flex;
-    transform: translateY(200%);
-    flex-direction: column;
-    gap: .5rem;
-    transition: transform .5s ease-in, opacity .3s ease-in;
-    opacity: 0;
-    }
-
-    a {
-        text-decoration: none; /* Supprime le soulignement */
-        color: white; /* Couleur du texte en blanc */
-    }
-
-    .cardp-border {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    border: 1px dashed #232323;
-    border-radius: 8px;
-    z-index: -1;
-    }
-
-    /*Hovers*/
-    .cardp:hover {
-    transform: translate(-15px, -15px);
-    border-color: #5bc0eb;
-    }
-
-    .cardp:hover .cardp-hidden {
-    transform: translateY(0);
-    opacity: 1;
-    }
-
-    .cardp:hover .titlep {
-    transform: translateY(200%);
-    }
-
-    /*Text*/
-    .titlep {
-    position: absolute;
-    bottom: 1rem;
-    font-weight: 700;
-    font-size: 1.5rem;
-    transition: transform .25s ease-out;
-    }
-
-    .titlep-in {
-    font-weight: 700;
-    font-size: 1.25rem;
-    }
-
-    /*Button*/
-    .buttonp {
-        display: inline-flex;
-        justify-content: center;
-        padding: 8px;
-        border-radius: 24px;
-        font-weight: 600;
-        background: linear-gradient(#30142b, #a12727);
-        cursor: pointer;
-        transition: background-color .3s ease-in-out;
-    }
-
-    .buttonp:hover {
-        background-color: #53aed4;
-    }
-
-        /* inspired from this svgbackgrounds.com/ */
-    .buttonaction {
-    width: fit-content;
-    display: flex;
-    padding: 0.6em 1.1em;
-    gap: 0.4rem;
-    font-weight: bold;
-    border-radius: 30px;
-    text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
-    background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
-    background-size: 300%;
-    background-position: left center;
-    transition: background .3s ease;
-    color: #fff;
-    }
-
-    .buttonaction:hover {
-    background-size: 320%;
-    background-position: right center;
-    }
-
-    .buttonaction:hover svg {
-    fill: #fff;
-    }
-
-    .buttonaction svg {
-    width: 23px;
-    fill: #f09f33;
-    transition: .3s ease;
-    }
-    </style>
-    <h1>Page index</h1>
+    <link rel="stylesheet" href="/css/index-bdd.css">
+    <link rel="stylesheet" href="/css/add-admin.css">
+    <br><br><br><br><br><br>
+    <div align='center'>
+        <button type="button" class="buttonadd" onclick="window.location.href = '{{ path('app_page_new') }}';">
+            <span class="buttonadd__text">Pages</span>
+            <span class="buttonadd__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+        </button>
+    </div>
     <div class="grid-container">
         {% for page in pages %}
             <div class="containerp">
@@ -174,6 +45,4 @@
             </div>
         {% endfor %}
     </div>
-
-    <a  class="btn btn-warning" href="{{ path('app_page_new') }}">Create new</a>
 {% endblock %}
