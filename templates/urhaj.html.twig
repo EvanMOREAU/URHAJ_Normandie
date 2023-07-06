@@ -1,1 +1,93 @@
 {% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+
+        #slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('/img/bg/6.jpg'); /* Image de départ */
+            background-size: cover;
+            background-position: left center;
+            animation: slide 10s infinite;
+            transition: background-position 1s ease-in-out; /* Ajout de la transition */
+        }
+
+        @keyframes slide {
+            0% { background-position: left center; } /* Position initiale à gauche */
+            100% { background-position: right center; } /* Position finale à droite */
+        }
+    </style>
+    <link href="/css/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    
+            <br><br><br>
+            
+        <!-- Notre PROJET Carte 1 -->
+        <div class="card shadow border-0 rounded-4 mb-5" style="margin: 50px;">
+            <div class="card-body p-5">
+                <div class="row align-items-center gx-5">
+                    <div align='center'>
+                        <div class="text-primary fw-bolder mb-1"><h1>NOTRE PROJET</h1></div>
+                    </div>
+                    <div align='center'>
+                        <div class="col-lg-8"><div>Créée en 1980, l’Union Régionale pour l’Habitat des Jeunes – Normandie est une association loi 1901.<br>Elle a pour but de :<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i><b>rassembler les 22 adhérents qui gèrent des résidences (Foyers de Jeunes Travailleurs), CLLAJ (Comités Locaux pour le Logement Autonome des Jeunes) ou Services Habitat Jeunes sur les 5 départements de la région. Ils contribuent à l’insertion sociale et professionnelle des jeunes de 16 à 30 ans par l’habitat,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i>représenter, défendre et promouvoir les intérêts de ses adhérents,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i>développer l’offre de logements en Normandie par des études et diagnostics réalisés en interne,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i>susciter et développer, avec ses partenaires, une politique régionale qui visera à améliorer l’habitat des jeunes en situation de mobilité sociale et professionnelle.</b><br><br></div></div>
+
+                        <div class="col-lg-8"><div>L’URHAJ Normandie affirme ses responsabilités pédagogique et sociale, à travers le logement et un ensemble de leviers comme l’accès à l’emploi, la formation, la mobilité, la citoyenneté, la santé dans une complémentarité éducative et territoriale.<br><br>Nous proposons en effet aux jeunes actifs une offre adaptée et diversifiée, associée à un accompagnement socio-éducatif.</b><br><br></div></div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Nos Missions Carte 2 -->
+        <div class="card shadow border-0 rounded-4 mb-5" style="margin: 50px;">
+            <div class="card-body p-5">
+                <div class="row align-items-center gx-5">
+                    <div align='center'>
+                        <div class="text-primary fw-bolder mb-1"><h1>NOS MISSIONS</h1></div>
+                    </div>
+                    <div align='center'>
+                        <div class="col-lg-8"><div>L’URHAJ Normandie est l’association tête de réseau de l’habitat des jeunes à l’échelle régionale. Nous proposons une solution logement aux jeunes de 16 à 30 ans ayant une activité ou un projet professionnel sur notre territoire. Nous agissons en lien avec l’UNHAJ.<br>Nos missions sont les suivantes :<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <b><u>fédérer et animer le réseau</u> en favorisant les rencontres et les échanges entre les adhérents sur des sujets inhérents à leur activité, impulsant une dynamique régionale, animant les instances,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>développer l’offre Habitat Jeunes sur les territoires</u> en réalisant des études et diagnostics qui visent à améliorer et diversifier les solutions logements offertes aux jeunes<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>accompagner les adhérents</u> en les appuyant techniquement dans leur projet,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>appuyer les politiques publiques</u> en participant aux réflexions et groupes de travail mis en oeuvre par les partenaires institutionnels,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>communiquer</u> les actions réalisées par les adhérents pour valoriser le réseau et le faire connaitre, informer les adhérents et partenaires.</b><br><br></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nos Missions Carte 2 -->
+        <div class="card shadow border-0 rounded-4 mb-5" style="margin: 50px;">
+            <div class="card-body p-5">
+                <div class="row align-items-center gx-5">
+                    <div align='center'>
+                        <div class="text-primary fw-bolder mb-1"><h1>NOS VALEURS</h1></div>
+                    </div>
+                    <div align='center'>
+                        <div class="col-lg-8"><div>L’URHAJ et ses adhérents partagent des principes communs :<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <b><u>une approche globale et personnalisée de chaque jeune</u> prenant en compte, en plus de la question du logement, les problématiques d’accès à l’emploi, à la mobilité, à la santé, à la citoyenneté pour agir sur les leviers qui peuvent concourir à donner au jeune un minimum de stabilité dans des périodes parfois difficiles et l’accompagner dans sa socialisation,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>un accueil souple et réactif</u> : une proposition de travail, de stage, de formation ne se diffère pas. La possibilité est offerte à un jeune d’intégrer rapidement un logement sans formalités excessives, sans garant, avec un accompagnement aux premières démarches,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>un accompagnement qui vise l’autonomie</u> : les équipes socio-éducatives informent et aident les jeunes sans tomber dans la prise en charge pure et simple. Elles sont présentes sur les lieux de vie des jeunes ; cette proximité permet de les aider globalement en individualisant la pédagogie pour améliorer leur capacité à agir de manière autonome,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>une mixité sociale revendiquée</u> : les jeunes accueillis sont volontairement d’origines géographiques, sociales et culturelles différentes pour qu’une génération se reconnaisse diverse,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>une vie collective solidaire</u> : de nombreuses activités sont organisées afin de créer des moments de rencontres entre résidents. Elles permettent d’appréhender l’intérêt collectif et créent des solidarités qui perdurent souvent après et en dehors des résidences Habitat Jeunes,<br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <u>une ouverture sociale et culturelle</u> : l’ancrage territorial des adhérents permet aux jeunes de découvrir la vie locale et d’y participer.</b><br><br></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="slideshow" >
+    </div>
+    <script src="/js/evan.js"></script> 
+{% endblock %}

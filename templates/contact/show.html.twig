@@ -3,32 +3,88 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-    <h1>Contact</h1>
+    <style>
+    .cssbuttons-io-button {
+    background: linear-gradient(#30142b, #a12727);
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em linear-gradient(#30142b, #a12727);
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+    }
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ contact.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ contact.email }}</td>
-            </tr>
-            <tr>
-                <th>Subject</th>
-                <td>{{ contact.subject }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ contact.content }}</td>
-            </tr>
-        </tbody>
-    </table>
+    .cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em linear-gradient(#30142b, #a12727);
+    right: 0.3em;
+    transition: all 0.3s;
+    }
 
-    <a href="{{ path('app_contact_index') }}">back to list</a>
+    .cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+    }
 
-    <a href="{{ path('app_contact_edit', {'id': contact.id}) }}">edit</a>
+    .cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #a12727;
+    }
 
-    {{ include('contact/_delete_form.html.twig') }}
+    .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+    }
+
+    .cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+    }
+
+    </style>
+    <link rel="stylesheet" href="/css/index-bdd.css">
+    <link rel="stylesheet" href="/css/add-admin.css">
+    <br><br><br><br><br>
+            <!-- Nos Missions Carte 2 -->
+        <div class="card shadow border-0 rounded-4 mb-5" style="margin: 50px;">
+            <div class="card-body p-5">
+                <div class="row align-items-center gx-5">
+                    <div align='center'>
+                        <div class="text-primary fw-bolder mb-1"><h2>{{ contact.subject }}</h2></div>
+                    </div>
+                    <div align='center'>
+                        <div class="col-lg-8"><div><u>ID : {{ contact.id }}</u> | <u> Email : {{ contact.email }}</u> | <u> Nom : {{ contact.name }}</u> <br><br></div></div>
+                        <div class="col-lg-8"><div><i class="bi bi-chevron-bar-right"></i> <b>{{ contact.content }}</b><br><br></div></div>
+                        <button class="cssbuttons-io-button" onclick="redirectToPage('/contact')"> Revenir à la liste
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        function redirectToPage(url) {
+            window.location.href = url;
+            return false;
+        }
+    </script>
 {% endblock %}

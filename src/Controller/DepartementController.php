@@ -27,6 +27,8 @@ class DepartementController extends AbstractController
     #[Route('/new', name: 'app_departement_new', methods: ['GET', 'POST'])]
     public function new(Request $request, DepartementRepository $departementRepository, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
         $departement = new Departement();
         $form = $this->createForm(DepartementType::class, $departement);
         $form->handleRequest($request);
