@@ -39,22 +39,7 @@ class AccountController extends AbstractController
         $form = $this->createForm(ImageType::class);
         $form->handleRequest($request);
 
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //     $formData = $form->getData();
-
-        //     // Vérifier si le mot de passe actuel est correct
-        //     if (!$this->passwordEncoder->isPasswordValid($user, $formData['currentPassword'])) {
-        //         $this->addFlash('error', 'Le mot de passe actuel est incorrect.');
-        //         return $this->redirectToRoute('account_manage');
-        //     }
-
-        //     // Mettre à jour le mot de passe
-        //     $user->setPassword($this->passwordEncoder->encodePassword($user, $formData['password']));
-        //     $entityManager->flush();
-
-        //     $this->addFlash('success', 'Le mot de passe a été modifié avec succès.');
-        //     return $this->redirectToRoute('account_manage');
-        // }
+        
         
         return $this->render('account/manage.html.twig', [
             'connected_user' => $user,

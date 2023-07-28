@@ -17,6 +17,9 @@ class StructureController extends AbstractController
     #[Route('/', name: 'app_structure_index', methods: ['GET'])]
     public function index(StructureRepository $structureRepository, PageRepository $pageRepository): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
         return $this->render('structure/index.html.twig', [
             'structures' => $structureRepository->findAll(),
             'pages' => $pageRepository->findAll(),
@@ -26,6 +29,8 @@ class StructureController extends AbstractController
     #[Route('/new', name: 'app_structure_new', methods: ['GET', 'POST'])]
     public function new(Request $request, StructureRepository $structureRepository, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
         $structure = new Structure();
         $form = $this->createForm(StructureType::class, $structure);
         $form->handleRequest($request);
@@ -46,6 +51,10 @@ class StructureController extends AbstractController
     #[Route('/{id}', name: 'app_structure_show', methods: ['GET'])]
     public function show(Structure $structure, PageRepository $pageRepository): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
+
         return $this->render('structure/show.html.twig', [
             'structure' => $structure,
             'pages' => $pageRepository->findAll(),
@@ -55,6 +64,10 @@ class StructureController extends AbstractController
     #[Route('/{id}/edit', name: 'app_structure_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Structure $structure, StructureRepository $structureRepository, PageRepository $pageRepository): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
+
         $form = $this->createForm(StructureType::class, $structure);
         $form->handleRequest($request);
 
@@ -74,6 +87,10 @@ class StructureController extends AbstractController
     #[Route('/{id}', name: 'app_structure_delete', methods: ['POST'])]
     public function delete(Request $request, Structure $structure, StructureRepository $structureRepository, PageRepository $pageRepository): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
+        
         if ($this->isCsrfTokenValid('delete'.$structure->getId(), $request->request->get('_token'))) {
             $structureRepository->remove($structure, true);
         }

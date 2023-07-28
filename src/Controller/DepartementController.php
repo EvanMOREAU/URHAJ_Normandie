@@ -18,6 +18,8 @@ class DepartementController extends AbstractController
     #[Route('/', name: 'app_departement_index', methods: ['GET'])]
     public function index(DepartementRepository $departementRepository, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
         return $this->render('departement/index.html.twig', [
             'departements' => $departementRepository->findAll(),
             'pages' => $pageRepository->findAll(),
@@ -49,6 +51,8 @@ class DepartementController extends AbstractController
     #[Route('/{id}', name: 'app_departement_show', methods: ['GET'])]
     public function show(Departement $departement, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
         return $this->render('departement/show.html.twig', [
             'departement' => $departement,
             'pages' => $pageRepository->findAll(),
@@ -58,6 +62,8 @@ class DepartementController extends AbstractController
     #[Route('/{id}/edit', name: 'app_departement_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Departement $departement, DepartementRepository $departementRepository, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
         $form = $this->createForm(DepartementType::class, $departement);
         $form->handleRequest($request);
 
@@ -77,6 +83,8 @@ class DepartementController extends AbstractController
     #[Route('/{id}', name: 'app_departement_delete', methods: ['POST'])]
     public function delete(Request $request, Departement $departement, DepartementRepository $departementRepository, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+        
         if ($this->isCsrfTokenValid('delete'.$departement->getId(), $request->request->get('_token'))) {
             $departementRepository->remove($departement, true);
         }

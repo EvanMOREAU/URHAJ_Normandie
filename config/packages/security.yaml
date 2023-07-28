@@ -39,7 +39,6 @@ security:
                 enable_csrf: true
 
     role_hierarchy:     
-        ROLE_ADMIN:       ROLE_USER
         ROLE_CLLAJ:       ROLE_USER
         ROLE_FJT:         ROLE_USER
         ROLE_URHAJ:       [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]

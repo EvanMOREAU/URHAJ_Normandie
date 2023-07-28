@@ -46,6 +46,8 @@ class ContactController extends AbstractController
     #[Route('/{id}', name: 'app_contact_show', methods: ['GET'])]
     public function show(Contact $contact, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
         return $this->render('contact/show.html.twig', [
             'contact' => $contact,
             'pages' => $pageRepository->findAll(),
@@ -55,6 +57,8 @@ class ContactController extends AbstractController
     #[Route('/{id}/edit', name: 'app_contact_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Contact $contact, ContactRepository $contactRepository, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
@@ -74,6 +78,8 @@ class ContactController extends AbstractController
     #[Route('/{id}', name: 'app_contact_delete', methods: ['POST'])]
     public function delete(Request $request, Contact $contact, ContactRepository $contactRepository, PageRepository $pageRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_URHAJ');
+        
         if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
             $contactRepository->remove($contact, true);
         }

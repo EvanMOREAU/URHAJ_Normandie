@@ -3,6 +3,7 @@
 {% block body %}
     <style>
 
+        
         #slideshow {
             position: fixed;
             top: 0;
@@ -25,142 +26,167 @@
         .transparent-card {
             background-color: rgba(255, 255, 255, 0.8);
         }
+
+        .container {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .content {
+        text-align: left;
+        margin: 0 auto; /* Cette propriété centre le contenu horizontalement */
+        }
+
+        .sources {
+        text-align: center; /* Garde les sources alignées à gauche */
+        margin: 0 auto; /* Cette propriété centre les sources horizontalement */
+        max-width: 800px; /* Ajustez la largeur selon vos préférences */
+        }
+                body {
+        /* font-family: 'Nunito', sans-serif; */
+        font-family: 'Quicksand', sans-serif;
+        }   
     </style>
     <link href="/css/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    
+    {# <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> <!-- Nunito --> #}
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet"> <!-- Quick Sand -->
             <br><br><br>
             
-        <!-- Methodo Carte 1 -->
-        <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px;">
-            <div class="card-body p-5">
-                <div class="row align-items-center gx-5">
-                    <div align='center'>
-                        <div class="text-primary fw-bolder mb-1"><h1>Pourquoi investir sur des projets mobilité ?</h1></div>
-                    </div>
-                    <div align='center'>
-                        <div class="col-lg-8"><div>
-                            Notre Union régionale a choisi de travailler la mobilité pour répondre à différents enjeux explicités ci-dessous. Au-delà de l’interculturalité, du vivre ensemble, il s’agit pour nous de répondre aux demandes des équipes socioéducatives en structure et des Conseils de Vie Sociale et d’offrir une parenthèse à des publics parfois, souvent, empêchés.
-                        <br><br></div></div>
-                        <div class="col-lg-8"><div>
-                            Le site de presse en ligne d’information générale « Blast » l’évoque. « Les vacances représentent un grand moment d’inégalités, où les conséquences de l’inflation sont plus frappantes, où les jeunes qui se serrent la ceinture regardent à travers les écrans les vacanciers sur la route de la plage, de la montagne, de la campagne…
-                            Avant tout, petit point lexical qu'est-ce qu'on entend par vacances ? Comme le rappellent l'Insee et l'organisation mondiale du tourisme, les vacances désignent l'ensemble des déplacements d'agrément comportant au moins 4 nuits consécutives hors du domicile et si on s'appuie sur cette définition on constate que 3 000 000 d'enfants ne partent pas en vacances chaque année et qu'environ 40% des gens ne partent pas en vacances du tout. Ce chiffre est en augmentation d'année en année. En janvier 2022, date de la dernière étude du Credoc (Centre de Recherche pour l'Étude et l'Observation des Conditions de vie), le taux de départ était de seulement 54%. Il s’agit d’un des taux les plus bas depuis près de 40 ans. 
-                            Ce que l'on fait pendant les vacances est un véritable marqueur social. Selon Sandra Hoibian, directrice du Credoc, c'est l'un des indicateurs où il y a le plus d'écarts entre les catégories modestes et aisées. Si en moyenne 60% des gens partent, ils sont entre 80 et 90% dans les catégories aisées à partir en vacances contre seulement 20 à 30% dans les catégories les plus modestes ». 
-                        <br><br></div></div>
-                        <div class="col-lg-8"><div>
-                            1/3 des publics Habitat Jeunes perçoit moins de 460€ par mois, 8 jeunes sur 10 vivent sous le seuil de pauvreté, malgré une situation d’emploi pour plus de la moitié d’entre eux, ils sont de fait, éloignés de l’outil vacances. Pour information, les sports d'hiver par exemple concernent seulement 8% de la population. De plus, comme le montre le rapport de l'Observatoire des inégalités, les plus aisés sont davantage aidés pour partir en vacances : chèques vacances, réseau … 
-                        <br><br></div></div>
-
-                        <div class="col-lg-6"><div><u>Sources :</u> <br><b>
-                            Émission du 11 juillet 2023, Blast, le souffle de l’info<br>
-                            Observatoires des publics accueillis, URHAJ Normandie</b><br><br></div></div>
-
-
-                    </div>
-                </div>
-            </div>
+<div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px;">
+    <div class="card-body p-5">
+      <div class="container">
+        <div class="content">
+          <div class="text-primary fw-bolder mb-1"><h1>Pourquoi investir sur des projets mobilité ?</h1></div>
         </div>
+        <div class="content">
+          <div>
+            Notre Union régionale a choisi de travailler la mobilité pour répondre à différents enjeux explicités ci-dessous. Au-delà de l’interculturalité, du vivre ensemble, il s’agit pour nous de répondre aux demandes des équipes socioéducatives en structure et des Conseils de Vie Sociale et d’offrir une parenthèse à des publics parfois, souvent, empêchés.
+          </div>
+          <br>
+          <div>
+            Le site de presse en ligne d’information générale « Blast » l’évoque. « Les vacances représentent un grand moment d’inégalités, où les conséquences de l’inflation sont plus frappantes, où les jeunes qui se serrent la ceinture regardent à travers les écrans les vacanciers sur la route de la plage, de la montagne, de la campagne…
+            Avant tout, petit point lexical qu'est-ce qu'on entend par vacances ? Comme le rappellent l'Insee et l'organisation mondiale du tourisme, les vacances désignent l'ensemble des déplacements d'agrément comportant au moins 4 nuits consécutives hors du domicile et si on s'appuie sur cette définition on constate que 3 000 000 d'enfants ne partent pas en vacances chaque année et qu'environ 40% des gens ne partent pas en vacances du tout. Ce chiffre est en augmentation d'année en année. En janvier 2022, date de la dernière étude du Credoc (Centre de Recherche pour l'Étude et l'Observation des Conditions de vie), le taux de départ était de seulement 54%. Il s’agit d’un des taux les plus bas depuis près de 40 ans. 
+            Ce que l'on fait pendant les vacances est un véritable marqueur social. Selon Sandra Hoibian, directrice du Credoc, c'est l'un des indicateurs où il y a le plus d'écarts entre les catégories modestes et aisées. Si en moyenne 60% des gens partent, ils sont entre 80 et 90% dans les catégories aisées à partir en vacances contre seulement 20 à 30% dans les catégories les plus modestes ». 
+          </div>
+          <br>
+          <div>
+            1/3 des publics Habitat Jeunes perçoit moins de 460€ par mois, 8 jeunes sur 10 vivent sous le seuil de pauvreté, malgré une situation d’emploi pour plus de la moitié d’entre eux, ils sont de fait, éloignés de l’outil vacances. Pour information, les sports d'hiver par exemple concernent seulement 8% de la population. De plus, comme le montre le rapport de l'Observatoire des inégalités, les plus aisés sont davantage aidés pour partir en vacances : chèques vacances, réseau … 
+          </div>
+          <br>
+          <div class="sources"><u>Sources :</u><br><b>
+            Émission du 11 juillet 2023, Blast, le souffle de l’info<br>
+            Observatoires des publics accueillis, URHAJ Normandie</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
         
         <!-- Methodo Carte 2 -->
-        <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px;">
-            <div class="card-body p-5">
-                <div class="row align-items-center gx-5">
-                    <div align='center'>
-                        <div class="text-primary fw-bolder mb-1"><h1>Le droit aux vacances</h1></div>
-                    </div>
-                    <div align='center'>
-                        <div class="col-lg-8"><div>
-                            L'article 24 de la Déclaration Universelle des Droits de l'Homme stipule que « toute personne a droit au repos et aux loisirs et notamment à une limitation raisonnable de la durée du travail et à des congés payés périodiques en France ». Cette énonciation du droit en vacances comme tant de repos et de loisirs est renforcée avec l'article 140 de la loi du 29 juillet 1998 relative à la lutte contre les exclusions : « l'égal accès de tous, tout au long de la vie à la culture, à la pratique sportive, aux vacances et aux loisirs constitue un objectif national ». Le CNRS va plus loin et relève que les vacances garantissent l'exercice effectif de la citoyenneté.<br>
-                            Le sociologue Jean Viard affirme que les vacances sont fondamentales car c'est une période où l'on sort du quotidien où l'on vit donc de nouvelles expériences et des interactions sociales différentes. Il souligne que le vacancier acquiert une nouvelle expérience qu'il va pouvoir confronter avec sa vie au retour c'est un moment également de construction pour les jeunes qui apprennent par exemple la mobilité, comment on prend le train ou le bateau et qui auront moins peur le jour où ils partiront d'eux-mêmes à l'aventure ou à la découverte du monde. Selon André Rauch, les vacances sont devenues un facteur majeur d'intégration sociale. En conséquence, celui qui ne part pas en vacances est exclu, marginalisé. 
-                        <br><br></div></div>
-                        <div class="col-lg-8"><div>
-                            Habitat Jeunes ambitionne de contribuer à l’intégration du jeune, de favoriser son autonomie et de développer son engagement est une réponse aux observations des ces sociologues de renom. Le travail autour de la mobilité ainsi engagé depuis 2020 est porteur tant en termes d’impact sur le jeune accompagné, que de dynamisme au sein des structures et du réseau normand. <br><br><br></div></div>
-
-                        <div class="col-lg-6"><div><b>#vacances #inégalités #économie #droitpourtous</b><br><br></div></div>
-
-
-                    </div>
-                </div>
-            </div>
+  <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px;">
+    <div class="card-body p-5">
+      <div class="container">
+        <div class="content">
+          <div class="text-primary fw-bolder mb-1"><h1>Le droit aux vacances</h1></div>
         </div>
+        <div class="content">
+          <div>
+            L'article 24 de la Déclaration Universelle des Droits de l'Homme stipule que « toute personne a droit au repos et aux loisirs et notamment à une limitation raisonnable de la durée du travail et à des congés payés périodiques en France ». Cette énonciation du droit en vacances comme tant de repos et de loisirs est renforcée avec l'article 140 de la loi du 29 juillet 1998 relative à la lutte contre les exclusions : « l'égal accès de tous, tout au long de la vie à la culture, à la pratique sportive, aux vacances et aux loisirs constitue un objectif national ». Le CNRS va plus loin et relève que les vacances garantissent l'exercice effectif de la citoyenneté.<br>
+            Le sociologue Jean Viard affirme que les vacances sont fondamentales car c'est une période où l'on sort du quotidien où l'on vit donc de nouvelles expériences et des interactions sociales différentes. Il souligne que le vacancier acquiert une nouvelle expérience qu'il va pouvoir confronter avec sa vie au retour c'est un moment également de construction pour les jeunes qui apprennent par exemple la mobilité, comment on prend le train ou le bateau et qui auront moins peur le jour où ils partiront d'eux-mêmes à l'aventure ou à la découverte du monde. Selon André Rauch, les vacances sont devenues un facteur majeur d'intégration sociale. En conséquence, celui qui ne part pas en vacances est exclu, marginalisé.
+          </div>
+          <br>
+          <div>
+            Habitat Jeunes ambitionne de contribuer à l’intégration du jeune, de favoriser son autonomie et de développer son engagement est une réponse aux observations des ces sociologues de renom. Le travail autour de la mobilité ainsi engagé depuis 2020 est porteur tant en termes d’impact sur le jeune accompagné, que de dynamisme au sein des structures et du réseau normand.
+          </div>
+          <br>
+          <div><b>#vacances #inégalités #économie #droitpourtous</b><br><br></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Methodo Carte 3 -->
-        <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px; ">
-            <div class="card-body p-5" >
-                <div class="row align-items-center gx-5"  >
-                    <div align='center'>
-                        <div class="text-primary fw-bolder mb-1"><h1>Nos démarches de mobilité, en pratique ?</h1></div>
-                    </div>
-                    <div align='center'>
-                        <div class="col-lg-8"><div>
-                            Nos fiches action précisent en préambule de la méthodologie de projet appliquée : « Projet transversal avec les axes portés par la loi du 29 juillet 1998. Pour mémoire, celle-ci indique que : «<b> l’accès de tous aux vacances, à la pratique sportive, aux loisirs et à la culture contribue à l’exercice de la pleine citoyenneté. Il recouvre ainsi un enjeu de lutte contre les exclusions et constitue un objectif national, conformément à l’article 140 de cette loi</b> ».
-                            En lien avec le mouvement d’Éducation populaire, notre association et ses adhérents ont souhaité construire un projet <b>pour les jeunes et avec les jeunes</b>. Chaque étape est proposée, discutée avec eux et les résidents Habitat Jeunes sont partis prenantes à parts entières de la démarche. »
-                        <br><br></div></div>
-                        <div class="col-lg-8" style="font-family: 'Century Gothic'"><div>
-                           <u> Cette démarche de projet est :</u><br>
-                            <b>Engageante</b> : un jeune s’inscrit et s’engage à participer aux animations pédagogiques, culturelles ou sociales proposées dans le cadre du projet.<br>
-                            <b>Enrichissante</b> : leur investissement est renforcé par le biais des actions d’autofinancement qu’ils pensent, organisent et mettent en œuvre. En effet, le financement de ce projet se veut participatif, solidaire et responsabilisant.<br>
-                            <b>Participative</b> : chacun a le droit de s’exprimer et d’intégrer, sur demande, le comité de pilotage ‘JEUNES’ dédié à ce projet. Les idées des résidents sont les bienvenues, et si elles sont adaptées, sont soutenues par l’ensemble du réseau.<br>
-                            <b>Socio-éducative</b> : elle permet d’aborder les aspects administratifs (droits, devoirs, documents légaux d’identité ou de résidence…), budgétaire, santé (alimentation, couverture santé…), d’interculturalité et de collectif (le groupe de départ se veut mixte) …<br>
-                        <br><br></div></div>
-                        <div class="col-lg-8"><div>
-                            Pour la majorité des jeunes positionnés sur ce projet, il s’agit d’une première expérience de mobilité. Certains n’imaginent pas être capable de voyager, d’intégrer un collectif. Pour d’autres, le départ est plus facile mais pas une évidence pour autant.
-                        <br><br></div></div>
-                    </div>
-                </div>
-            </div>
+  <!-- Methodo Carte 3 -->
+  <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px;">
+    <div class="card-body p-5">
+      <div class="container">
+        <div class="content">
+          <div class="text-primary fw-bolder mb-1"><h1>Nos démarches de mobilité, en pratique ?</h1></div>
         </div>
+        <div class="content">
+          <div>
+            Nos fiches action précisent en préambule de la méthodologie de projet appliquée : « Projet transversal avec les axes portés par la loi du 29 juillet 1998. Pour mémoire, celle-ci indique que <b>l’accès de tous aux vacances, à la pratique sportive, aux loisirs et à la culture contribue à l’exercice de la pleine citoyenneté. Il recouvre ainsi un enjeu de lutte contre les exclusions et constitue un objectif national, conformément à l’article 140 de cette loi</b> ».
+            En lien avec le mouvement d’Éducation populaire, notre association et ses adhérents ont souhaité construire un projet <b>pour les jeunes et avec les jeunes</b>. Chaque étape est proposée, discutée avec eux et les résidents Habitat Jeunes sont partis prenantes à parts entières de la démarche.
+          </div>
+          <br>
+          <div >
+            <u>Cette démarche de projet est :</u><br>
+            <b>Engageante</b> : un jeune s’inscrit et s’engage à participer aux animations pédagogiques, culturelles ou sociales proposées dans le cadre du projet.<br>
+            <b>Enrichissante</b> : leur investissement est renforcé par le biais des actions d’autofinancement qu’ils pensent, organisent et mettent en œuvre. En effet, le financement de ce projet se veut participatif, solidaire et responsabilisant.<br>
+            <b>Participative</b> : chacun a le droit de s’exprimer et d’intégrer, sur demande, le comité de pilotage ‘JEUNES’ dédié à ce projet. Les idées des résidents sont les bienvenues, et si elles sont adaptées, sont soutenues par l’ensemble du réseau.<br>
+            <b>Socio-éducative</b> : elle permet d’aborder les aspects administratifs (droits, devoirs, documents légaux d’identité ou de résidence…), budgétaire, santé (alimentation, couverture santé…), d’interculturalité et de collectif (le groupe de départ se veut mixte) …<br>
+          </div>
+          <br>
+          <div>
+            Pour la majorité des jeunes positionnés sur ce projet, il s’agit d’une première expérience de mobilité. Certains n’imaginent pas être capable de voyager, d’intégrer un collectif. Pour d’autres, le départ est plus facile mais pas une évidence pour autant.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- Methodo Carte 4 -->
-        <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px; ">
-            <div class="card-body p-5" >
-                <div class="row align-items-center gx-5"  >
-                    <div align='center'>
-                        <div class="text-primary fw-bolder mb-1"><h1>Quels enjeux pour les publics Habitat Jeunes ?</h1></div>
-                    </div>
-                    
-                        <div class="col-lg-8"><div>
-                            <i class="bi bi-chevron-bar-right"></i>Créer une action qui pourra profiter au plus éloignés du collectif ou du thème, <br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Proposer aux jeunes de développer leurs capacités relationnelles et leur connaissance de soi<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Favoriser l’échange en mixant les participants<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Rencontrer et développer des relations avec des interlocuteurs associatifs ou économiques locaux<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Contribuer aux politiques sociales et renforcer les dispositifs de droits communs,<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Aider au départ en vacances des publics les plus éloignés et/fragiles<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Développer les connaissances et les compétences des professionnels du réseau Habitat Jeunes Normands<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Ouvrir le champ des possibles et des pratiques professionnelles<br><br>
-                        <br><br></div></div>
-                </div>
-            </div>
+  <!-- Methodo Carte 4 -->
+  <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px;">
+    <div class="card-body p-5">
+      <div class="container">
+        <div class="content">
+          <div class="text-primary fw-bolder mb-1"><h1>Quels enjeux pour les publics Habitat Jeunes ?</h1></div>
         </div>
-        <!-- Methodo Carte 5 -->
-        <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px; ">
-            <div class="card-body p-5" >
-                <div class="row align-items-center gx-5"  >
-                    <div align='center'>
-                        <div class="text-primary fw-bolder mb-1"><h1>Des objectifs pour tous</h1></div>
-                    </div>
-                        <div class="col-lg-8"><div>
-                            <h4>Pour nos publics : </h4><br>
-                            <i class="bi bi-chevron-bar-right"></i>Développer l’engagement et l’implication des jeunes dans un projet collectif et à court terme via sa participation au projet d’une part et à la démarche ‘mangez, bougez’<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Favoriser l’échange entre les résidents des différents foyers des territoires (normands et Rhône-Alpes) en amont et pendant le séjour, <br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Inscrire les vacances dans le parcours résidentiel du jeune,<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Proposer une activité sportive et de bien-être tout en développant la confiance du jeune et le regard sur soi.<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Acquérir ou renforcer les bonnes pratiques en termes d’alimentation<br><br>
-                        <br><br></div></div>
-                        <div class="col-lg-8"><div>
-                            <h4>Pour les professionnels : </h4><br>
-                            <i class="bi bi-chevron-bar-right"></i>Favoriser l’échange et la relation avec les publics accueillis ou accompagnés,<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Mieux connaitre les problématiques des publics en situation ‘hors les murs’,<br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Découvrir et échanger avec des professionnels ‘d’animation, d’accompagnement socio-éducatif’ évoluant au sein des réseaux de Normandie et d’ailleurs.<br><br>
-                        <br><br></div></div>
-                        <div class="col-lg-8"><div>
-                            <h4>Pour nos réseaux et structures : </h4><br>
-                            <i class="bi bi-chevron-bar-right"></i>Renforcer le réseau Habitat Jeunes en créant du lien <br><br>
-                            <i class="bi bi-chevron-bar-right"></i>Promouvoir le mouvement Habitat Jeunes (Bien plus que du logement) via la communication faite sur l’événement.<br><br>
-                        <br><br></div></div>
-                </div>
-            </div>
+        <div class="content">
+            <i class="bi bi-chevron-bar-right"></i>Créer une action qui pourra profiter au plus éloignés du collectif ou du thème, <br><br>
+            <i class="bi bi-chevron-bar-right"></i>Proposer aux jeunes de développer leurs capacités relationnelles et leur connaissance de soi<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Favoriser l’échange en mixant les participants<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Rencontrer et développer des relations avec des interlocuteurs associatifs ou économiques locaux<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Contribuer aux politiques sociales et renforcer les dispositifs de droits communs,<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Aider au départ en vacances des publics les plus éloignés et/fragiles<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Développer les connaissances et les compétences des professionnels du réseau Habitat Jeunes Normands<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Ouvrir le champ des possibles et des pratiques professionnelles<br><br>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Methodo Carte 5 -->
+  <div class="card shadow border-0 rounded-4 mb-5 transparent-card" style="margin: 50px;">
+    <div class="card-body p-5">
+      <div class="container">
+        <div class="content">
+          <div class="text-primary fw-bolder mb-1"><h1>Des objectifs pour tous</h1></div>
+        </div>
+        <div class="content">
+          <div>
+            <h4>Pour nos publics :</h4><br>
+            <i class="bi bi-chevron-bar-right"></i>Développer l’engagement et l’implication des jeunes dans un projet collectif et à court terme via sa participation au projet d’une part et à la démarche ‘mangez, bougez’<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Favoriser l’échange entre les résidents des différents foyers des territoires (normands et Rhône-Alpes) en amont et pendant le séjour, <br><br>
+            <i class="bi bi-chevron-bar-right"></i>Inscrire les vacances dans le parcours résidentiel du jeune,<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Proposer une activité sportive et de bien-être tout en développant la confiance du jeune et le regard sur soi.<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Acquérir ou renforcer les bonnes pratiques en termes d’alimentation<br><br>
+          </div>
+          <div>
+            <h4>Pour les professionnels :</h4><br>
+            <i class="bi bi-chevron-bar-right"></i>Favoriser l’échange et la relation avec les publics accueillis ou accompagnés,<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Mieux connaître les problématiques des publics en situation ‘hors les murs’,<br><br>
+            <i class="bi bi-chevron-bar-right"></i>Découvrir et échanger avec des professionnels ‘d’animation, d’accompagnement socio-éducatif’ évoluant au sein des réseaux de Normandie et d’ailleurs.<br><br>
+          </div>    
+          <div>
+            <h4>Pour nos réseaux et structures :</h4><br>
+            <i class="bi bi-chevron-bar-right"></i>Renforcer le réseau Habitat Jeunes en créant du lien <br><br>
+            <i class="bi bi-chevron-bar-right"></i>Promouvoir le mouvement Habitat Jeunes (Bien plus que du logement) via la communication faite sur l’événement.<br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <div id="slideshow" >
     </div>
     <script src="/js/evan.js"></script> 
