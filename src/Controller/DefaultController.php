@@ -25,10 +25,10 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('/methodologie', name: 'app_methodo')]
+    #[Route('/nos-motivations', name: 'app_nosmotiv')]
     public function metho(PageRepository $pageRepository): Response
     {
-        return $this->render('methodo.html.twig',[
+        return $this->render('nosmotiv.html.twig',[
             'pages' => $pageRepository->findAll(),
         ]);
     }

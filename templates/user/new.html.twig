@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouvel utilisateur{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Nouvel utilisateur{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
 <link rel="stylesheet" href="/css/template-form-admin.css">

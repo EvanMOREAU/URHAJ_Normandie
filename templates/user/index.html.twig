@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Liste des utilisateurs{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
         <link rel="stylesheet" href="/css/add-admin.css">
@@ -150,7 +153,7 @@
             .buttondelete::before {
             position: absolute;
             top: -20px;
-            content: "Suprrimer";
+            content: "Supprimer";
             color: white;
             transition-duration: .3s;
             font-size: 2px;

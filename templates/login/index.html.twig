@@ -1,4 +1,7 @@
-{% block title %}Login{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Connexion{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
     {% if error %}

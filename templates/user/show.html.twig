@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Vue d'un utilisateur{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
-    <h1>User</h1>
 
     <table class="table">
         <tbody>

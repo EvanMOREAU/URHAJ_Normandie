@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Structure{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Nouvelle structure{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
 <style>
@@ -9,9 +12,13 @@
         height: auto;
     }
 </style>
-
+    <br><br><br><br>
+    <div align='center'>
+        <div class="title">Créer une nouvelle structure</div>
+        <div class="subtitle">Remplissez les informations nécéssaires</div>
+    </div>
     <div class="form2">
-        <br><br><br>
+        
         {{ include('structure/_form.html.twig') }}
     </div> 
      

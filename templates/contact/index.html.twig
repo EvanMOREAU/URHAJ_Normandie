@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact index{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Liste des messages{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
     <link rel="stylesheet" href="/css/index-bdd.css">
@@ -137,7 +140,7 @@
             .buttondelete::before {
             position: absolute;
             top: -20px;
-            content: "Suprrimer";
+            content: "Supprimer";
             color: white;
             transition-duration: .3s;
             font-size: 2px;
@@ -270,8 +273,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             }
     </style>
-    <h1>Contact index</h1>
-    <br><br><br><br><br>
+    <br><br><br><br><br><br>
     <div class="grid-container">
     {% for contact in contacts %}
         <div class="cardcontact">

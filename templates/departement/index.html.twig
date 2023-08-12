@@ -1,8 +1,205 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Departement index{% endblock %}
+
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Liste des départements{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
+    <style>
+        .buttondelete {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(20, 20, 20);
+            border: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+            cursor: pointer;
+            transition-duration: .3s;
+            overflow: hidden;
+            position: relative;
+            }
+
+            .svgIcon {
+            width: 12px;
+            transition-duration: .3s;
+            }
+
+            .svgIcon path {
+            fill: white;
+            }
+
+            .buttondelete:hover {
+            width: 140px;
+            border-radius: 50px;
+            transition-duration: .3s;
+            background-color: rgb(255, 69, 69);
+            align-items: center;
+            }
+
+            .buttondelete:hover .svgIcon {
+            width: 50px;
+            transition-duration: .3s;
+            transform: translateY(60%);
+            }
+
+            .buttondelete::before {
+            position: absolute;
+            top: -20px;
+            content: "Supprimer";
+            color: white;
+            transition-duration: .3s;
+            font-size: 2px;
+            }
+
+            .buttondelete:hover::before {
+            font-size: 13px;
+            opacity: 1;
+            transform: translateY(30px);
+            transition-duration: .3s;
+            }
+
+
+            .confirmdel {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 15px 20px;
+            background-color: #212121;
+            border: none;
+            font: inherit;
+            color: #e8e8e8;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: not-allowed;
+            overflow: hidden;
+            transition: all 0.3s ease cubic-bezier(0.23, 1, 0.320, 1);
+            }
+
+            .confirmdel span {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            }
+
+            .confirmdel::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            translate: 0 105%;
+            background-color: #F53844;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            }
+
+            .confirmdel svg {
+            width: 32px;
+            height: 32px;
+            fill: #F53844;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+            }
+
+            .confirmdel:hover {
+            animation: shake 0.2s linear 1;
+            }
+
+            .confirmdel:hover::before {
+            translate: 0 0;
+            }
+
+            .confirmdel:hover svg {
+            fill: #e8e8e8;
+            }
+
+            @keyframes shake {
+            0% {
+                rotate: 0deg;
+            }
+
+            33% {
+                rotate: 10deg;
+            }
+
+            66% {
+                rotate: -10deg;
+            }
+
+            100% {
+                rotate: 10deg;
+            }
+            }
+
+            .beautiful-button {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(169deg, rgba(6,151,153,1) 0%, rgba(63,112,0,1) 100%);
+            /* Gradient background */
+            color: white;
+            /* White text color */
+            font-family: "Segoe UI", sans-serif;
+            /* Stylish and legible font */
+            font-weight: bold;
+            font-size: 18px;
+            /* Large font size */
+            border: none;
+            /* No border */
+            border-radius: 30px;
+            /* Rounded corners */
+            padding: 18px 29px;
+            /* Large padding */
+            cursor: pointer;
+            /* Cursor on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow */
+            animation: button-shimmer 2s infinite;
+            transition: all 0.3s ease-in-out;
+            /* Smooth transition */
+            }
+
+            /* Hover animation */
+            .beautiful-button:hover {
+            background: linear-gradient(332deg, rgba(6,151,153,1) 0%, rgba(63,112,0,1) 100%);
+            animation: button-particles 1s ease-in-out infinite;
+            transform: translateY(-2px);
+            }
+
+            /* Click animation */
+            .beautiful-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Shimmer animation */
+            @keyframes button-shimmer {
+            0% {
+                background-position: left top;
+            }
+
+            100% {
+                background-position: right bottom;
+            }
+            }
+
+            /* Particle animation */
+            @keyframes button-particles {
+            0% {
+                background-position: left top;
+            }
+
+            100% {
+                background-position: right bottom;
+            }
+            }
+    </style>
 <link rel="stylesheet" href="/css/index-bdd.css">
     <link rel="stylesheet" href="/css/add-admin.css">
     <br><br><br><br><br><br><br>
@@ -41,9 +238,30 @@
 
                     </div>
                     <div class="modal-footer" align="center">
-                        <a  class="buttonaction" href="{{ path('app_structure_show', {'id': departement.id}) }}">Afficher</a>
-                        <a  class="buttonaction" href="{{ path('app_structure_edit', {'id': departement.id}) }}">Modifier</a>
+                        <button class="buttondelete" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ departement.id }}" ><svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg></button>
+                        <a  class="buttonaction" href="{{ path('app_departement_show', {'id': departement.id}) }}">Afficher</a>
+                        <a  class="buttonaction" href="{{ path('app_departement_edit', {'id': departement.id}) }}">Modifier</a>
                     </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="staticBackdrop{{ departement.id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Suppression de département</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Êtes-vous sûr de vouloir supprimer le département : <b>{{ departement.name }}</b><br>
+                            Ayant pour numéro : <b>{{ departement.num }}</b><br><br>
+                            Cette action est irréversible. En validant la suppression du département, vous prennez les responsabilités qui en incombe.<br><br>
+                            <u>Le développeur du site se décharge de toute responsabilités lié à cette suppression.</u>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="beautiful-button" data-bs-dismiss="modal">Annuler</button>
+                            {{ include('departement/_delete_form.html.twig') }}
+                        </div>
                     </div>
                 </div>
             </div>

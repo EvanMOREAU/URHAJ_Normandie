@@ -1,13 +1,22 @@
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Nouvelle page{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
+
 {% block body %}
-    <style>
-        html{
-            background: #15172b;
-            height: auto;
-        }
-    </style>
+<style>
+    body{
+        background-color: #15172b;
+        height: auto;
+    }
+</style>
+        <br><br><br><br>
+    <div align='center'>
+        <div class="title">Créer une nouvelle Page</div>
+        <div class="subtitle">Remplissez les informations nécéssaires</div>
+    </div>
 
-
-    <br><br><br><br><br>
+    <br><br>
     {{ include('page/_form.html.twig') }}
 
 {% endblock %}

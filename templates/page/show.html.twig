@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Vue d'une page{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
     <h1>{{ page.title }}</h1>

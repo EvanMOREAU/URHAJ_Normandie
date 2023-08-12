@@ -1,6 +1,10 @@
 {# {% extends 'base.html.twig' %} #}
 {% extends 'base.html.twig' %}
-{% block title %}Hello AccountController!{% endblock %}
+
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Gestion de profil {% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
     <link rel="stylesheet" href="/css/manage-user.css">

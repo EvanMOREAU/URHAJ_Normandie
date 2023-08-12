@@ -1,13 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Departement{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Modification de département{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
-    <h1>Edit Departement</h1>
+    <style>
+        body{
+            background-color: #14182A;
+        }
+    </style>
+        <br><br><br><br>
+    <div align='center'>
+        <div class="title">Modifiez le département</div>
+        <div class="subtitle">Remplissez les informations nécéssaires</div>
+    </div>
 
     {{ include('departement/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_departement_index') }}">back to list</a>
+    {# <a href="{{ path('app_departement_index') }}">back to list</a>
 
-    {{ include('departement/_delete_form.html.twig') }}
+    {{ include('departement/_delete_form.html.twig') }} #}
 {% endblock %}
+

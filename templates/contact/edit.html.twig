@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Contact{% endblock %}
+  {% block head %}
+    <title>{% block title %}URHAJ Normandie | Modification de formulaire de contact{% endblock %}</title>
+    {% block icon %}<link rel='icon' href='/img/icone.ico'>{% endblock %}
+  {% endblock %}
 
 {% block body %}
-    <h1>Edit Contact</h1>
-
     {{ include('contact/_form.html.twig', {'button_label': 'Update'}) }}
 
     <a href="{{ path('app_contact_index') }}">back to list</a>
